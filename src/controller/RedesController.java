@@ -103,7 +103,7 @@ public class RedesController {
 					if(linha.contains("dia")){
 						String[] vetPing = linha.split(", ");
 						String[] vetMedia = vetPing[2].split("=");
-						b.append("Mï¿½dia:");
+						b.append("Média:");
 						b.append(vetMedia[1]);
 					}
 									}
