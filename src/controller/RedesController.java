@@ -16,7 +16,7 @@ public class RedesController {
 		return os;
 	}
 	
-	public String configuraIP(String os){
+	public String ip(String os){
 		String mostra = "";
 		String processo = "";
 		
@@ -50,7 +50,17 @@ public class RedesController {
 					}
 				}
 				if(os.contains("Linux")){
-						
+					if(linha.contains("flags")){
+						String[] vetNome = linha.split(":");
+						nome = linha;
+					}
+					if(linha.contains("IPv4")){
+						String[] vetIP = linha.split(": ");
+						b.append(nome);
+						b.append(" ");
+						b.append(vetIP[1]);
+						b.append("\n");
+					}
 				}
 					linha = buffer.readLine();
 				}
@@ -68,7 +78,7 @@ public class RedesController {
 	}
 	
 	
-	public String mediaPing(String os){
+	public String ping(String os){
 		String mostra = "";
 		String processo = "";
 		
@@ -92,7 +102,7 @@ public class RedesController {
 					if(linha.contains("dia")){
 						String[] vetPing = linha.split(", ");
 						String[] vetMedia = vetPing[2].split("=");
-						b.append("Mï¿½dia:");
+						b.append("Média:");
 						b.append(vetMedia[1]);
 					}
 									}
@@ -100,7 +110,7 @@ public class RedesController {
 					if(linha.contains("avg")){
 						String[] vetPing = linha.split("=");
 						String[] vetMedia = vetPing[1].split("/");
-						b.append("Mï¿½dia: ");
+						b.append("Media: ");
 						b.append(vetMedia[1]);
 						b.append(" ms");
 					}

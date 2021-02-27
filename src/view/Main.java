@@ -16,8 +16,8 @@ public class Main {
 					+ "2- Tempo médio do PING\n"
 					+ "0- Finalizar\n\nEscolha:"));
 			switch(opcao){
-				case 1: System.out.println(controller.configuraIP(os)); break;
-				case 2: System.out.println(controller.mediaPing(os)); break;
+				case 1: System.out.println(controller.ip(os)); break;
+				case 2: System.out.println(controller.ping(os)); break;
 				case 0: System.exit(0);
 				default: JOptionPane.showMessageDialog(null, "Opção Inválida");break;
 			}
