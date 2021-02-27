@@ -52,13 +52,14 @@ public class RedesController {
 				if(os.contains("Linux")){
 					if(linha.contains("flags")){
 						String[] vetNome = linha.split(":");
-						nome = linha;
+						nome = vetNome[0];
 					}
-					if(linha.contains("IPv4")){
-						String[] vetIP = linha.split(": ");
+					if(linha.contains("inet ")){
+						linha = linha.trim();
+						String[] vetIPL = linha.split(" ");
 						b.append(nome);
-						b.append(" ");
-						b.append(vetIP[1]);
+						b.append(": ");
+						b.append(vetIPL[1]);
 						b.append("\n");
 					}
 				}
@@ -102,7 +103,7 @@ public class RedesController {
 					if(linha.contains("dia")){
 						String[] vetPing = linha.split(", ");
 						String[] vetMedia = vetPing[2].split("=");
-						b.append("Média:");
+						b.append("Mï¿½dia:");
 						b.append(vetMedia[1]);
 					}
 									}
